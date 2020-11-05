@@ -1,5 +1,5 @@
 # Xena Browser Data Analysis
-This repository is a set of python scripts implementing the [xenaPython](https://github.com/ucscXena/xenaPython) library to access cancer datasets.
+This repository is a set of python scripts implementing the [xenaPython](https://github.com/ucscXena/xenaPython) library to access and analyze cancer datasets.
 
 ### Install xenaPython
 ```
