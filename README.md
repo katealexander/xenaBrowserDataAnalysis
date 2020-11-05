@@ -17,12 +17,14 @@ If any genes in your gene list of interest are not found in Xena browser, they w
 ```
 python checkGeneList.py geneList.txt
 ```
+There are two types of genes here: those that are not found (and maybe have other gene names) and those that have undetectable expression (NaN gene expression scores).
 
 #### Replace your gene list with a list of genes that have expression found in Xena browser
-From above, if there are a number of genes without expression data, you can generate a new gene list file that either finds their gene alias that is in Xena browser, or excludes the gene if an alias with Xena browser expression cannot be found. Note that some of the genes will be excluded just because they are not detected in the dataset, so the same gene list may have different genes excluded depending on the cancer type
+From above, if there are a number of genes without expression data, you can generate a new gene list file that either finds their gene alias that is in Xena browser, or excludes the gene if an alias with Xena browser expression cannot be found. Note that some of the genes will be excluded just because they are not detected in the dataset, so the same gene list may have different genes excluded depending on the cancer type.
 ```
-python replaceGeneListWithXenaAliasNames.py testGeneList.txt > xenaAliasGeneList.txt
+python replaceGeneListWithXenaAliasNames.py KIRC testGeneList.txt > xenaAliasGeneList.txt
 ```
+This script will exclude all genes with undetectable expression and try to find aliases for genes where the names are different in Xena browser.
 
 #### Get expression data from gene list
 The following returns a table of the PANCAN normalized expression for any cancer study of interest. Rows are genes, columns are patients.
