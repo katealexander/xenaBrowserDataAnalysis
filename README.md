@@ -10,13 +10,21 @@ pip install xenaPython
 pip install --upgrade xenaPython
 ```
 
-## Determine whether all your genes of interest are found in the dataset
+## Get expression data from TCGA PANCAN studies for a list of genes
+
+#### Determine whether all your genes of interest are found in the dataset
 If any genes in your gene list of interest are not found in Xena browser, they will be printed in the following script. You can then check if they may have alternative names.
 ```
 python checkGeneList.py geneList.txt
 ```
 
-## Get expression data from TCGA PANCAN studies for a list of genes
+#### Replace your gene list with a list of genes that have expression found in Xena browser
+From above, if there are a number of genes without expression data, you can generate a new gene list file that either finds their gene alias that is in Xena browser, or excludes the gene if an alias with Xena browser expression cannot be found. Note that some of the genes will be excluded just because they are not detected in the dataset, so the same gene list may have different genes excluded depending on the cancer type
+```
+python replaceGeneListWithXenaAliasNames.py testGeneList.txt > xenaAliasGeneList.txt
+```
+
+#### Get expression data from gene list
 The following returns a table of the PANCAN normalized expression for any cancer study of interest. Rows are genes, columns are patients.
 ```
 python getExpressionFromXena.py KIRC testGeneList.txt > outfile.txt
